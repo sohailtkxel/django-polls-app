@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Polls App - Results</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+</head>
+<body>
+<h1>{{ object.question_text }}</h1>
+<ul class="clear">
+    {% for choice in object.choice_set.all %}
+        <li><span class="left">{{ choice.choice_text }}</span><span class="right">{{ choice.votes }}</span></li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' object.id %}">Vote Again</a>
+</body>
+</html>

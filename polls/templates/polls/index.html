@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Polling App - Index</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+</head>
+<body>
+<h1>Poll Questions</h1>
+{% if qlist %}
+    <div class="list">
+        <ul>
+        {% for q in qlist %}
+            <li style="text-transform: capitalize"><a href="{% url 'polls:detail' q.id %}">{{ q.question_text }}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+{% else %}
+    <p>No poll question found</p>
+{% endif %}
+</body>
+</html>

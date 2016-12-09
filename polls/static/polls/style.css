@@ -1,0 +1,43 @@
+body{
+    background: #EFEFEF;
+    font-family:"Bitstream Vera Sans Mono"
+}
+.list ul{
+    text-decoration: none;
+    list-style: none;
+    width: 80%;
+}
+.vote ul{
+    margin-left: 30px;
+    list-style: none;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.clear{
+    clear: both;
+}
+input[type="submit"]{
+    margin: 10px 0 0 100px;
+}
+.list ul li a{
+    color: green;
+    text-decoration: none;
+}
+.list ul li {
+    padding: 10px;
+    border: 1px solid #EFEFEF;
+}
+.list ul li :hover{
+    border: 1px solid #FFFFFF;
+    color: #333;
+}
+h1{
+    margin-left: 30px;
+}
+h1,p{
+    text-transform: capitalize;
+}

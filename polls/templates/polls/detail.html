@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Polling app - Detail</title>
+        {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+</head>
+<body>
+<h1 style="text-transform: capitalize">{{ object.question_text }}</h1>
+{% if error_message %}
+    <p><strong>{{ error_message }}</strong></p>
+{% endif %}
+<div class="vote">
+    <form action="{% url 'polls:vote' object.id %}" method="POST">
+        {% csrf_token %}
+        {% for choice in object.choice_set.all %}
+            <input type="radio" name="choice" value="{{ choice.id }}" id="choice{{ forloop.counter }}"/>
+            <label style="text-transform: capitalize" for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
+        {% endfor %}
+        <input type="submit" value="Vote" />
+    </form>
+</div>
+</body>
+</html>
